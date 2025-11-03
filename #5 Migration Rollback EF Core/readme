@@ -1,0 +1,22 @@
+🧭 Command 1:
+update-database -migration:0
+✅ Meaning:
+This rolls back all migrations, bringing your database back to the initial (empty) state, before any migrations were applied.
+Equivalent to: "undo everything."
+All tables and schema created by migrations will be dropped (as long as the migrations' Down() methods support that).
+
+🧭 Command 2:
+update-database 20251103115118_StudentTable
+✅ Meaning:
+
+This updates (or re-applies) your database up to a specific migration — here named 20251103115118_StudentTable.
+It runs all migrations up to and including that one.
+It’s commonly used after rolling back to 0, to reapply specific migrations selectively.
+
+🧭 Command 3:
+remove-migration
+
+🧩 What It Does:
+Deletes the most recent migration from your project’s Migrations folder.
+Reverts any model snapshot changes (ModelSnapshot.cs).
+It does not affect the database — only your code.
